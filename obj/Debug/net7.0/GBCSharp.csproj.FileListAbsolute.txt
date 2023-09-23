@@ -1,0 +1,14 @@
+C:\Users\win\Desktop\GBCSharp\bin\Debug\net7.0\GBCSharp.exe
+C:\Users\win\Desktop\GBCSharp\bin\Debug\net7.0\GBCSharp.deps.json
+C:\Users\win\Desktop\GBCSharp\bin\Debug\net7.0\GBCSharp.runtimeconfig.json
+C:\Users\win\Desktop\GBCSharp\bin\Debug\net7.0\GBCSharp.dll
+C:\Users\win\Desktop\GBCSharp\bin\Debug\net7.0\GBCSharp.pdb
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\GBCSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\GBCSharp.AssemblyInfoInputs.cache
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\GBCSharp.AssemblyInfo.cs
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\GBCSharp.csproj.CoreCompileInputs.cache
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\GBCSharp.dll
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\refint\GBCSharp.dll
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\GBCSharp.pdb
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\GBCSharp.genruntimeconfig.cache
+C:\Users\win\Desktop\GBCSharp\obj\Debug\net7.0\ref\GBCSharp.dll
