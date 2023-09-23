@@ -1,36 +1,33 @@
-﻿GetMax(1, 2);
-GetMax(124, 5);
+﻿Console.WriteLine(GetSecontDigit(658));
+Console.WriteLine(GetSecontDigit(704) + "\n");
 
-Console.WriteLine(GetMaxOfThree(1, 2, 3) + "\n");
-Console.WriteLine(GetMaxOfThree(1, 8, 3) + "\n");
-Console.WriteLine(GetMaxOfThree(10, 2, 3) + "\n");
+Console.WriteLine(GetThirdDigit(77118829));
+Console.WriteLine(GetThirdDigit(2) + "\n");
 
-Console.WriteLine(IsEven(9) + "\n");
-Console.WriteLine(IsEven(8) + "\n");
+Console.WriteLine(IsItAWeekday(4));
+Console.WriteLine(IsItAWeekday(28));
+Console.WriteLine(IsItAWeekday(15));
+Console.WriteLine(IsItAWeekday(6));
+Console.WriteLine(IsItAWeekday(7));
 
-Array.ForEach(GetEvenNumbersUpToNumber(10), Console.WriteLine);
-Console.WriteLine("\n");
-Array.ForEach(GetEvenNumbersUpToNumber(21), Console.WriteLine);
 
-void GetMax(int num1, int num2) {
-    Console.WriteLine("max = " + Math.Max(num1, num2) + "\n");
+char GetSecontDigit(int number) {
+    return number.ToString()[1];
 }
 
-int GetMaxOfThree(int num1, int num2, int num3) {
-    return Math.Max(num1, (Math.Max(num2, num3)));
+char GetThirdDigit(int number) {
+    try {
+        return number.ToString()[2];
+    } catch (Exception e) {
+        Console.WriteLine("третьей цифры нет");
+    }
+    return '\0';
 }
 
-bool IsEven(int number) {
-    return number % 2 == 0;
-}
-
-int[] GetEvenNumbersUpToNumber(int number) {
-    int[] nums = new int[number/2 + 1];
-
-    for (int i = 2; i < number; i = i + 2) {
-        nums[i/2] = i;
+string IsItAWeekday(int num) {
+    if ((num % 6 == 0) || (num % 7 == 0)) {
+        return "да";
     }
 
-    return nums;
+    return "нет";
 }
-
