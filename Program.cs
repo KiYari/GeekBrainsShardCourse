@@ -1,21 +1,26 @@
-﻿Console.WriteLine(Pow(3, 5));
-Console.WriteLine(Pow(2, 4) + '\n');
+﻿Console.WriteLine(Pow(PowPrompt()));
 
-Console.WriteLine(GetDigitSum(82 ));
-Console.WriteLine(GetDigitSum(452 ));
-Console.WriteLine(GetDigitSum(9012 ) + "\n");
+Console.WriteLine(GetDigitSum(DigitsPrompt()));
 
-GetArray(1, 2, 5, 7, 19);
-GetArray(6, 1, 33);
+GetArray();
 
+int[] PowPrompt() {
+    Console.Write("Task25. Please, input number you want to raise to a power and power separated by comma: ");
+    return Array.ConvertAll(Console.ReadLine().Split(","), num => int.Parse(num));
+}
 
-int Pow(int number, int power) {
-    int res = number;
-    for(int i = 0; i < power; i++) {
-        res *= number;
+int Pow(int[] values) {
+    int res = values[0];
+    for(int i = 0; i < values[1] - 1; i++) {
+        res *= values[0];
     }
 
     return res;
+}
+
+int DigitsPrompt() {
+    Console.Write("Task27. Please, input your number: ");
+    return int.Parse(Console.ReadLine());
 }
 
 int GetDigitSum(int num) {
@@ -29,6 +34,9 @@ int GetDigitSum(int num) {
     return res;
 }
 
-void GetArray(params int[] arrayInitValues) {
-    Console.WriteLine("[" + string.Join(", ", arrayInitValues) + "]");
+void GetArray() {
+    int[] values = new int[8];
+    Console.Write("Task29. Please, input your numbers separated by commas: ");
+    values = Array.ConvertAll(Console.ReadLine().Split(","), num => int.Parse(num));
+    Console.WriteLine("[" + string.Join(", ", values) + "]");
 }
