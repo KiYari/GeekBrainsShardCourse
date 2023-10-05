@@ -1,42 +1,68 @@
-﻿Console.WriteLine(Pow(PowPrompt()));
+﻿Console.WriteLine(CountEven(CreateRandomArray(2, 5555, 7)));
 
-Console.WriteLine(GetDigitSum(DigitsPrompt()));
+Console.WriteLine(GetSumOnOddPositions(CreateRandomArray(100, 500, 10)));
 
-GetArray();
+Console.WriteLine(GetDifferenceBetweenMaxAndMin(CreateRandomDoubleArray(1, 200, 8)));
 
-int[] PowPrompt() {
-    Console.Write("Task25. Please, input number you want to raise to a power and power separated by comma: ");
-    return Array.ConvertAll(Console.ReadLine().Split(","), num => int.Parse(num));
-}
+int[] CreateRandomArray(int min, int max, int size) {
+    int[] result = new int[size];
+    Random random = new Random();
 
-int Pow(int[] values) {
-    int res = values[0];
-    for(int i = 0; i < values[1] - 1; i++) {
-        res *= values[0];
+    for(int i = 0; i < size; i++) {
+        result[i] = random.Next(min, max);
     }
 
-    return res;
+    return result;
 }
 
-int DigitsPrompt() {
-    Console.Write("Task27. Please, input your number: ");
-    return int.Parse(Console.ReadLine());
-}
+double[] CreateRandomDoubleArray(double min, double max, int size) {
+    double[] result = new double[size];
+    Random random = new Random();
 
-int GetDigitSum(int num) {
-    char[] digitArray = num.ToString().ToCharArray();
-    int res = 0;
-
-    for(int i = 0; i < digitArray.Length; i++) {
-        res += digitArray[i] - '0';
+    for(int i = 0; i < size; i++) {
+        result[i] = random.NextDouble() * (max - min) + min;
     }
 
-    return res;
+    return result;
 }
 
-void GetArray() {
-    int[] values = new int[8];
-    Console.Write("Task29. Please, input your numbers separated by commas: ");
-    values = Array.ConvertAll(Console.ReadLine().Split(","), num => int.Parse(num));
-    Console.WriteLine("[" + string.Join(", ", values) + "]");
+int CountEven(int[] numbers) {
+    int result = 0;
+
+    for(int i = 0; i < numbers.Length; i++) {
+        if(numbers[i]%2==0) {
+            result++;
+        }
+    }
+
+    return result;
+}
+
+int GetSumOnOddPositions(int[] numbers) {
+    int result = 0;
+
+    for(int i = 0; i < numbers.Length; i++) {
+        if(i%2==1) {
+            result += numbers[i];
+        }
+    }
+
+    return result;
+}
+
+double GetDifferenceBetweenMaxAndMin(double[] numbers) {
+    double max = numbers[0];
+    double min = numbers[0];
+
+    for(int i = 0; i < numbers.Length; i++) {
+        if(numbers[i] < min) {
+            min = numbers[i];
+        }
+
+        if(numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+
+    return max - min;
 }
