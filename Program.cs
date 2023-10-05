@@ -1,68 +1,38 @@
-﻿Console.WriteLine(CountEven(CreateRandomArray(2, 5555, 7)));
+﻿Console.WriteLine("There are " + CountNumbersMoreThanZero(6) + " more than 0");
 
-Console.WriteLine(GetSumOnOddPositions(CreateRandomArray(100, 500, 10)));
+double[] coords = GetPoint();
+Console.Write("Your point is: (" + coords[0] + ", " + coords[1] + ")");
 
-Console.WriteLine(GetDifferenceBetweenMaxAndMin(CreateRandomDoubleArray(1, 200, 8)));
-
-int[] CreateRandomArray(int min, int max, int size) {
-    int[] result = new int[size];
-    Random random = new Random();
-
-    for(int i = 0; i < size; i++) {
-        result[i] = random.Next(min, max);
-    }
-
-    return result;
-}
-
-double[] CreateRandomDoubleArray(double min, double max, int size) {
-    double[] result = new double[size];
-    Random random = new Random();
-
-    for(int i = 0; i < size; i++) {
-        result[i] = random.NextDouble() * (max - min) + min;
-    }
-
-    return result;
-}
-
-int CountEven(int[] numbers) {
-    int result = 0;
-
-    for(int i = 0; i < numbers.Length; i++) {
-        if(numbers[i]%2==0) {
-            result++;
+int CountNumbersMoreThanZero(int m) {
+    int res = 0;
+    for(int i = 0; i < m; i++) {
+        Console.Write("Please, input number: ");
+        if(Int32.Parse(Console.ReadLine()) > 0) {
+            res++;
         }
     }
 
-    return result;
+    return res;
 }
 
-int GetSumOnOddPositions(int[] numbers) {
-    int result = 0;
+double[] GetPoint() {
+    Console.WriteLine("You are going to input coefficients for 2 lines: y = k1 * x + b1 and y = k2 * x + b2");
+    Console.Write("Please, input k1: ");
+    double k1 = Double.Parse(Console.ReadLine());
+    Console.Write("Please, input b1: ");
+    double b1 = Double.Parse(Console.ReadLine());
+    Console.Write("Please, input k2: ");
+    double k2 = Double.Parse(Console.ReadLine());
+    Console.Write("Please, input b2: ");
+    double b2 = Double.Parse(Console.ReadLine());
 
-    for(int i = 0; i < numbers.Length; i++) {
-        if(i%2==1) {
-            result += numbers[i];
-        }
+    try {
+        double x = (b1 - b2)/(k1 - k2);
+        double y = k1 * x + b1;
+
+        return new double[] {x, y};
+    } catch(Exception e) {
+        Console.WriteLine("There is no intersection point between 2 lines");
+        throw e;
     }
-
-    return result;
-}
-
-double GetDifferenceBetweenMaxAndMin(double[] numbers) {
-    double max = numbers[0];
-    double min = numbers[0];
-
-    for(int i = 0; i < numbers.Length; i++) {
-        if(numbers[i] < min) {
-            min = numbers[i];
-        }
-
-        if(numbers[i] > max) {
-            max = numbers[i];
-        }
-    }
-
-    return max - min;
 }
