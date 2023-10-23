@@ -1,38 +1,35 @@
-﻿Console.WriteLine("There are " + CountNumbersMoreThanZero(6) + " more than 0");
+﻿PrintNaturalNumbersSince(5);
+Console.WriteLine(GetNaturalSum(1, 15));
+Console.WriteLine(GetNaturalSum(4, 8));
 
-double[] coords = GetPoint();
-Console.Write("Your point is: (" + coords[0] + ", " + coords[1] + ")");
+Console.WriteLine(Ackermann(2, 3));
+Console.WriteLine(Ackermann(3, 2));
 
-int CountNumbersMoreThanZero(int m) {
-    int res = 0;
-    for(int i = 0; i < m; i++) {
-        Console.Write("Please, input number: ");
-        if(Int32.Parse(Console.ReadLine()) > 0) {
-            res++;
+int PrintNaturalNumbersSince(int N) {
+    if(N == 1) {
+        System.Console.WriteLine(1);
+        return 1;
+    }
+    System.Console.Write(N + ", ");
+    return PrintNaturalNumbersSince(N -1);
+}
+
+
+int GetNaturalSum(int start, int stop) {
+    if (stop == start) {
+        return start;
+    }
+    return stop + GetNaturalSum(start, stop - 1);
+}
+
+int Ackermann(int m, int n) {
+        if (m == 0) {
+            return n + 1;
+        } else if ((m > 0) && (n == 0)) {
+            return Ackermann(m - 1, 1);
+        } else if ((m > 0) && (n > 0)) {
+            return Ackermann(m - 1, Ackermann(m, n - 1)); 
+        } else {
+            return n + 1;
         }
     }
-
-    return res;
-}
-
-double[] GetPoint() {
-    Console.WriteLine("You are going to input coefficients for 2 lines: y = k1 * x + b1 and y = k2 * x + b2");
-    Console.Write("Please, input k1: ");
-    double k1 = Double.Parse(Console.ReadLine());
-    Console.Write("Please, input b1: ");
-    double b1 = Double.Parse(Console.ReadLine());
-    Console.Write("Please, input k2: ");
-    double k2 = Double.Parse(Console.ReadLine());
-    Console.Write("Please, input b2: ");
-    double b2 = Double.Parse(Console.ReadLine());
-
-    try {
-        double x = (b1 - b2)/(k1 - k2);
-        double y = k1 * x + b1;
-
-        return new double[] {x, y};
-    } catch(Exception e) {
-        Console.WriteLine("There is no intersection point between 2 lines");
-        throw e;
-    }
-}
